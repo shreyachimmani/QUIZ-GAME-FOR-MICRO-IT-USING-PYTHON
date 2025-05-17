@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question {{ qnum }}</title>
+    <style>
+        body {
+            background-color: #e0f7fa;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            width: 500px;
+            text-align: center;
+        }
+        h3 {
+            color: #00695c;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        form {
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin: 10px 0;
+            font-size: 18px;
+            color: #333;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            font-size: 16px;
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #004d40;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Q{{ qnum }}: {{ question }}</h3>
+        <form method="post">
+            {% for opt in options %}
+                <label><input type="radio" name="option" value="{{ opt }}" required> {{ opt }}</label>
+            {% endfor %}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
